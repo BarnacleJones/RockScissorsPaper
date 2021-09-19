@@ -1,1 +1,1 @@
-Odin project Rock Scissors Paper console based application
+Odin project Rock Scissors Paper browser application
