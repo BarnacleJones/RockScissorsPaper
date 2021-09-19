@@ -82,7 +82,7 @@ function getSelections(){
 
 
 function game(){
-    const computerSelection = computerPlay();
+    
     var repeats = document.querySelector("#nums").value;
     let display = document.createElement("ul");
     document.querySelector(".resultsBoard").innerHTML = "";
@@ -90,6 +90,7 @@ function game(){
 
     //for each game this loops
     for (let index = 1; index <= repeats; index++) {
+        const computerSelection = computerPlay();
         
         //something not working here
         if (document.getElementById(("rock" + index)).checked) {
