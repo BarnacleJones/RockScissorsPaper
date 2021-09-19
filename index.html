@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Scissors Paper</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="styler">
+    <h1 style="text-align: center;">Welcome to the 'Rock Scissors Paper' game</h1>
+    <br>
+    <h2 style="text-align: center;">Results Board:</h2>
+    <form class="inputs" style="text-align: center;">
+        <label for="nums">Number of games:</label>
+    <input type="number" id = "nums" value="">
+        <button onclick="getSelections()" type="button" >Make selections</button>
+        <br>
+        <br>
+    </form>
+    <div class="radios"></div>
+    <h3 style="align-self: center;">Push this button when you've made your selection</h3>
+    <button style="align-self: center;" onclick="game()">PLAY!</button>
+    <div class="resultsBoard"></div>
+    
+    <div class="totals">
+        <h1>User total:</h1>
+    <h2 id=userCount></h2>
+    <br>
+    <h1>Computer total:</h1>
+    <h2 id="compCount"></h2>
+</div>
+</div>
+
+
+    
+</body>
+</html>
