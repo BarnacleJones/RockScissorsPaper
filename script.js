@@ -15,7 +15,6 @@ if ((playerSelection === 'rock') && (computerSelection === 'rock')) {
 }
 if ((playerSelection) === 'rock' && (computerSelection === 'paper')) {
     var results = "Computer wins, paper beats rock!";
-    ++computerCounter;
 }
 if ((playerSelection === 'rock') && (computerSelection === 'scissors')) {
     var results = "You win! Rock beats scissors";    
@@ -47,18 +46,18 @@ function rockGame(){
     playRound(playerSelection, computerSelection);    
     if (computerSelection == "rock") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <img class="compImage" src="/images/rock.png" alt="rock" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
     }
     if (computerSelection == "paper") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <img class="compImage" src="/images/paper.png" alt="paper" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         computerCounter++;
     }
     if (computerSelection == "scissors") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <img class="compImage" src="/images/scissors.png" alt="scissors" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         userCounter++;
     }
@@ -73,18 +72,18 @@ function paperGame(){
     playRound(playerSelection, computerSelection);    
     if (computerSelection == "rock") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <img class="compImage" src="/images/rock.png" alt="rock" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         userCounter++;
     }
     if (computerSelection == "paper") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <img class="compImage" src="/images/paper.png" alt="paper" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
     }
     if (computerSelection == "scissors") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <img class="compImage" src="/images/scissors.png" alt="scissors" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         computerCounter++;
     }
@@ -99,19 +98,19 @@ function scissorsGame(){
     playRound(playerSelection, computerSelection);    
     if (computerSelection == "rock") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <img class="compImage" src="/images/rock.png" alt="rock" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         computerCounter++;
     }
     if (computerSelection == "paper") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <img class="compImage" src="/images/paper.png" alt="paper" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`;
         userCounter++
     }
     if (computerSelection == "scissors") {
         document.querySelector(".compChoice").innerHTML = `
-        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <img class="compImage" src="/images/scissors.png" alt="scissors" height="100px">
         <h3>Score: <span class="compScore"></span></h3>`
     }
     document.querySelector(".userScore").innerText = userCounter;
