@@ -52,6 +52,12 @@ return results;
 //function for getting how many times you want to play
 //and making radio buttons for each round
 function getSelections(){
+    document.querySelector(".resultsBoard").innerHTML = "";
+    if (document.getElementById("nums").value > 11) {
+        alert("Read the text - ten or less buddy!")
+        
+    }
+    else{
     document.querySelector(".radios").innerHTML = "";
     var repeats = document.querySelector("#nums").value;
     for (let index = 1; index <= repeats; index++) {
@@ -76,6 +82,7 @@ function getSelections(){
     userCounter =0;
     document.getElementById("userCount").innerText = userCounter;
     document.getElementById("compCount").innerText = computerCounter;
+}
     
 }
 
@@ -84,7 +91,7 @@ function getSelections(){
 function game(){
     
     var repeats = document.querySelector("#nums").value;
-    let display = document.createElement("ul");
+    let display = document.createElement("div");
     document.querySelector(".resultsBoard").innerHTML = "";
 
 
@@ -92,10 +99,11 @@ function game(){
     for (let index = 1; index <= repeats; index++) {
         const computerSelection = computerPlay();
         
-        //something not working here
+        
         if (document.getElementById(("rock" + index)).checked) {
             var playerSelection = "rock";
-            let listItem = document.createElement("li");
+            let listItem = document.createElement("div");
+            listItem.setAttribute("id", "resultItem")
             listItem.innerHTML = `
             Game: ${index} 
             <ul>
@@ -109,7 +117,8 @@ function game(){
         }
         if (document.getElementById(('paper' + index)).checked) {
             var playerSelection = "paper";
-            let listItem = document.createElement("li");
+            let listItem = document.createElement("div");
+            listItem.setAttribute("id", "resultItem")
             listItem.innerHTML = `
             Game: ${index} 
             <ul>
@@ -123,7 +132,8 @@ function game(){
         }
         if (document.getElementById(("scissors" + index)).checked) {
             var playerSelection = "scissors";
-            let listItem = document.createElement("li");
+            let listItem = document.createElement("div");
+            listItem.setAttribute("id", "resultItem")
             listItem.innerHTML = `
             Game: ${index} 
             <ul>

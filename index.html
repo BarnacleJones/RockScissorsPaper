@@ -10,29 +10,37 @@
 </head>
 <body>
 
-    <div class="styler">
-    <h1 style="text-align: center;">Welcome to the 'Rock Scissors Paper' game</h1>
+    <div class="gameBox">
     <br>
-    <h2 style="text-align: center;">Results Board:</h2>
+    <h1 id="title">Welcome to the 'Rock Scissors Paper' game</h1>
+        
     <form class="inputs" style="text-align: center;">
-        <label for="nums">Number of games:</label>
-    <input type="number" id = "nums" value="">
-        <button onclick="getSelections()" type="button" >Make selections</button>
-        <br>
-        <br>
+        <label for="nums">Number of games (10 or less):</label>
+        <input type="number" id = "nums" value="" max="10">
+        <br><br>
+        <button id="selectionButton" onclick="getSelections()" type="button" >Make selections</button>
     </form>
+
     <div class="radios"></div>
-    <h3 style="align-self: center;">Push this button when you've made your selection</h3>
-    <button style="align-self: center;" onclick="game()">PLAY!</button>
+
+    <div class="gameStart">
+        <br><br>
+        <h3>Push this button when you've made your selection</h3>
+        <br>
+        <button onclick="game()">PLAY!</button>
+    </div>
+    
     <div class="resultsBoard"></div>
     
-    <div class="totals">
+    <div class="UserTotals">
         <h1>User total:</h1>
-    <h2 id=userCount></h2>
-    <br>
-    <h1>Computer total:</h1>
-    <h2 id="compCount"></h2>
-</div>
+        <h2 id=userCount></h2>
+    </div>
+
+    <div class="CompTotals">
+        <h1>Computer total:</h1>
+        <h2 id="compCount"></h2>
+    </div>
 </div>
 
 
