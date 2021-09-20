@@ -1,4 +1,3 @@
-
 //function for computer choice
 function computerPlay(){
 let selection = ['rock', 'paper', 'scissors'];
@@ -8,8 +7,6 @@ return choice;
 
 var userCounter = 0;
 var computerCounter = 0;
-document.getElementById("userCount").innerText = userCounter;
-document.getElementById("compCount").innerText = computerCounter;
 
 //function to determines who wins
 function playRound(playerSelection, computerSelection){
@@ -18,140 +15,165 @@ if ((playerSelection === 'rock') && (computerSelection === 'rock')) {
 }
 if ((playerSelection) === 'rock' && (computerSelection === 'paper')) {
     var results = "Computer wins, paper beats rock!";
-    computerCounter++;
+    ++computerCounter;
 }
 if ((playerSelection === 'rock') && (computerSelection === 'scissors')) {
-    var results = "You win! Rock beats scissors";
-    userCounter++;
+    var results = "You win! Rock beats scissors";    
 }
 if ((playerSelection === 'paper') && (computerSelection === 'rock')) {
-    var results = " You win! Paper beats rock!";
-    userCounter++;
+    var results = " You win! Paper beats rock!";    
 }
 if ((playerSelection === 'paper') && (computerSelection === 'paper')) {
     var results = "This is a tie! Both paper!"
 }
 if ((playerSelection === 'paper') && (computerSelection === 'scissors')) {
-    var results = "Computer wins! Paper beats scissors";
-    computerCounter++;
+    var results = "Computer wins! Paper beats scissors";    
 }
 if ((playerSelection === 'scissors') && (computerSelection === 'scissors')) {
     var results = "This is a tie! Both Scissors!";
 }
 if ((playerSelection === 'scissors') && (computerSelection === 'paper')) {
-    var results = "You win! Scissors beat paper!";
-    userCounter++;
+    var results = "You win! Scissors beat paper!";    
 }
 if ((playerSelection === 'scissors') && (computerSelection === 'rock')) {
-    var results = "Computer Wins! Rock beats scissors!";
-    computerCounter++;
+    var results = "Computer Wins! Rock beats scissors!";   
 }
-return results;
+document.querySelector(".resultText").innerText = results;
 }
 
-//function for getting how many times you want to play
-//and making radio buttons for each round
-function getSelections(){
-    document.querySelector(".resultsBoard").innerHTML = "";
-    if (document.getElementById("nums").value > 11) {
-        alert("Read the text - ten or less buddy!")
+function rockGame(){
+    playerSelection = "rock"
+    computerSelection = computerPlay();    
+    playRound(playerSelection, computerSelection);    
+    if (computerSelection == "rock") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+    }
+    if (computerSelection == "paper") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        computerCounter++;
+    }
+    if (computerSelection == "scissors") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        userCounter++;
+    }
+    document.querySelector(".userScore").innerText = userCounter;
+    document.querySelector(".compScore").innerText = computerCounter;
+    keepScore();
+}
+
+function paperGame(){
+    playerSelection = "paper"
+    computerSelection = computerPlay();    
+    playRound(playerSelection, computerSelection);    
+    if (computerSelection == "rock") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        userCounter++;
+    }
+    if (computerSelection == "paper") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+    }
+    if (computerSelection == "scissors") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        computerCounter++;
+    }
+    document.querySelector(".userScore").innerText = userCounter;
+    document.querySelector(".compScore").innerText = computerCounter;
+    keepScore();
+}
+
+function scissorsGame(){
+    playerSelection = "scissors"
+    computerSelection = computerPlay();    
+    playRound(playerSelection, computerSelection);    
+    if (computerSelection == "rock") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/rock.png" alt="rock" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        computerCounter++;
+    }
+    if (computerSelection == "paper") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/paper.png" alt="paper" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`;
+        userCounter++
+    }
+    if (computerSelection == "scissors") {
+        document.querySelector(".compChoice").innerHTML = `
+        <img class="compImage" src="images/scissors.png" alt="scissors" height="100px">
+        <h3>Score: <span class="compScore"></span></h3>`
+    }
+    document.querySelector(".userScore").innerText = userCounter;
+    document.querySelector(".compScore").innerText = computerCounter;
+    keepScore();
+}
+
+function keepScore(){
+    if (userCounter >= 5) {
+        document.querySelector("body").innerHTML = `
+        <div class="content">
+        <h1>You win!</h1>
+        <button onclick="reset()">Reset Game</button>
+        </div>`;
+        document.querySelector("body").style = "background-color: black";
+                
+    }
+    if (computerCounter >= 5) {
+        document.querySelector("body").innerHTML = `
+        <div class="content">
+        <h1>You lose!</h1>
+        <button onclick="reset()">Reset Game</button>
+        </div>`;
+        document.querySelector("body").style = "background-color: black";
         
     }
-    else{
-    document.querySelector(".radios").innerHTML = "";
-    var repeats = document.querySelector("#nums").value;
-    for (let index = 1; index <= repeats; index++) {
-        let choiceSelection = document.createElement("div");
-        choiceSelection.setAttribute("id", "selection");
-        choiceSelection.innerHTML = `
-        <br>
-        <h3>Game:${index}</h3>
-        <label for="rock" id=choice${index}>Rock</label>
-        <input type="radio" id='rock${index}' value="" name="group${index}">
-        <br>
-        <label for="paper" id=choice${index}>Paper</label>
-        <input type="radio" id='paper${index}' value="" name="group${index}">
-        <br>
-        <label for="scissor" id=choice${index}>Scissors</label>
-        <input type="radio" id='scissors${index}' value="" name="group${index}">
-        `
-        document.querySelector(".radios").appendChild(choiceSelection); 
+}
+// function that resets page to initial layout
+function reset(){
+    document.querySelector("body").innerHTML = `
+    <div class="content">
+<header>
+<h1>
+    <span>ROCK||</span>
+    <span>PAPER||</span>
+    <span>SCISSORS||</span>
+</h1>
+<h2>First to 5 wins</h2>
+</header>
 
-    }
+<div class="userChoice">
+    <button class="rock" onclick="rockGame()"></button>
+    <button class="paper" onclick="paperGame()"></button>
+    <button class="scissors" onclick="scissorsGame()"></button>
+    <h3>Score: <span class="userScore">0</span></h3>
+</div>
+<h3 style="color: white;">VS</h3>
+<div class="compChoice">
+    <img class="compImage" src="images/comp.png" alt="comuters brain" height="100px">  
+    <h3>Score: <span class="compScore">0</span></h3>  
+</div>
+
+<div class="results"><h1 class=resultText></h1></div>
+
+<a href="https://github.com/BenMJones1/RockScissorsPaper"><img src="images/git.PNG" alt="gitLogo" height="30px"></a>
+</div>`;
+
+    userCounter = 0;
     computerCounter = 0;
-    userCounter =0;
-    document.getElementById("userCount").innerText = userCounter;
-    document.getElementById("compCount").innerText = computerCounter;
-}
-    
 }
 
 
 
-function game(){
-    
-    var repeats = document.querySelector("#nums").value;
-    let display = document.createElement("div");
-    document.querySelector(".resultsBoard").innerHTML = "";
-
-
-    //for each game this loops
-    for (let index = 1; index <= repeats; index++) {
-        const computerSelection = computerPlay();
-        
-        
-        if (document.getElementById(("rock" + index)).checked) {
-            var playerSelection = "rock";
-            let listItem = document.createElement("div");
-            listItem.setAttribute("id", "resultItem")
-            listItem.innerHTML = `
-            Game: ${index} 
-            <ul>
-            <li>Your guess: ${playerSelection}</li>
-            <li>Computer's guess: ${computerSelection}</li>
-            <li>Result: ${playRound(playerSelection, computerSelection)}</li>
-            </ul>
-            `
-            display.appendChild(listItem); 
-                
-        }
-        if (document.getElementById(('paper' + index)).checked) {
-            var playerSelection = "paper";
-            let listItem = document.createElement("div");
-            listItem.setAttribute("id", "resultItem")
-            listItem.innerHTML = `
-            Game: ${index} 
-            <ul>
-            <li>Your guess: ${playerSelection}</li>
-            <li>Computer's guess: ${computerSelection}</li>
-            <li>Result: ${playRound(playerSelection, computerSelection)}</li>
-            </ul>
-            `
-            display.appendChild(listItem); 
-                
-        }
-        if (document.getElementById(("scissors" + index)).checked) {
-            var playerSelection = "scissors";
-            let listItem = document.createElement("div");
-            listItem.setAttribute("id", "resultItem")
-            listItem.innerHTML = `
-            Game: ${index} 
-            <ul>
-            <li>Your guess: ${playerSelection}</li>
-            <li>Computer's guess: ${computerSelection}</li>
-            <li>Result: ${playRound(playerSelection, computerSelection)}</li>
-            </ul>
-            `
-            display.appendChild(listItem); 
-            
-                
-        }
-      
-    
-    }
-    document.getElementById("userCount").innerText = userCounter;
-    document.getElementById("compCount").innerText = computerCounter;
-    document.querySelector(".resultsBoard").append(display);
-    
-    
-}
+// add event listeners
+// document.querySelector(".rock").addEventListener("click", rockGame());

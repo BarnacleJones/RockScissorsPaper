@@ -1,77 +1,71 @@
 body{
-    background-image: url(images/rock.jpg);
-    background-size: cover;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
-.gameBox{
-    background-color: gray;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    opacity: .9;
-    text-align: center;
-    align-content: center;
-    height: 100vh; 
-    }
-
-.resultsBoard{
-    background-color: lightgray;
-    align-self: center;
-    grid-area: 5 / 3 / span 1 / span 6;;
-    text-align: left;    
+    background-color: black;    
 }
 
-#resultItem{
-float: left;
+header{
+    font-family: 'Special Elite', cursive;
+    font-weight:400;    
 }
 
-.CompTotals{
-    grid-area: 3 / 9/ span 1/ span 2;
-}
-
-.UserTotals{
-    grid-area: 3 / 1 / span 1 / span 2;
-}
-
-#title{
-    grid-area: 1/ 4 / span 1/ span 4 ;
-}
-
-.inputs{
-    grid-area: 2 / 5/ span 1 / span 2;
-}
-
-.gameStart{
-    grid-area: 4 / 5 / span 1 / span 2;    
-}
-
-.radios{
-    grid-area: 3 / 3 / span 1 / span 6;
-    display: flex;
-    flex-direction: row;
-    align-content: center;    
-    margin:0;
-    padding:0;
-}
-
-#selection{
-    flex: 1 1 10%;
-}
-
-.UserTotals > h2, .CompTotals > h2{
-    font-size: 3em;
-}
-
-
-@media (max-width: 800px){
-    .gameBox{
+.content{
+    font-family: 'Special Elite', cursive;
+    max-width: 500px;
+    margin: auto;
+    background-color: black;
+    color: whitesmoke;
     display: flex;
     flex-direction: column;
-    height: 800vh;}
-
-    .radios{
-        display: flex;
-        flex-direction: column;
+    text-align: center;
+    align-items: center;
     }
+
+/* border boxes for each div */
+
+.userChoice{
+    border: 3px solid yellowgreen;
+    display: inline-block;
+    background-color: whitesmoke;
+    color: black;  
+}
+
+.compChoice{
+    border: 3px solid yellowgreen;
+    color: black;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;  
+}
+
+/* image button styles */
+.rock{
+    background-image: url("images/rock.PNG");
+    height: 100px;
+    width: 100px;
+    background-size: cover;    
+}
+.rock:hover{
+    height: 90px;
+    width: 90px;
+}
+
+.paper{
+    background-image: url("images/paper.PNG");
+    height: 100px;
+    width: 100px;
+    background-size: cover;    
+}
+.paper:hover{
+    height: 90px;
+    width: 90px;
+}
+
+.scissors{
+    background-image: url("images/scissors.PNG");
+    height: 100px;
+    width: 100px;
+    background-size: cover;    
+}
+.scissors:hover{
+    height: 90px;
+    width: 90px;
 }
